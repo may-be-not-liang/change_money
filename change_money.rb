@@ -40,7 +40,7 @@ def change_money(value)
         puts "Input must be a numeric number"
         return "Input must be a numeric number"
     end
-    if value <= 0 || value > 999999999999999.93
+    if value <= 0 || value > 999999999999999.00
         puts "Input must be between 0 to 999999999999999.00"
         return "Input must be between 0 to 999999999999999.00"
     end
