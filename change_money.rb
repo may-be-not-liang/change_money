@@ -122,7 +122,9 @@ class ChangeMoneyTest < Test::Unit::TestCase
   def test_exchange_10
     expected = mock_all_money(0,0,0,1,0,0,0,0,0,0)
     result = change_money(10)
-    for i in 0..10 do
+    for i in 0..9 do
+      puts result[i].amount
+      puts expected[i].amount
       assert(result[i].amount == expected[i].amount, "Failed")
     end
   end
@@ -130,7 +132,7 @@ class ChangeMoneyTest < Test::Unit::TestCase
   def test_exchange_ten_with_many_decimal_points
     expected = mock_all_money(0,0,0,1,0,0,0,0,0,0)
     result = change_money(10.00000)
-    for i in 0..10 do
+    for i in 0..9 do
       assert(result[i].amount == expected[i].amount, "Failed")
     end
   end
@@ -138,7 +140,7 @@ class ChangeMoneyTest < Test::Unit::TestCase
   def test_exchange_100
     expected = mock_all_money(1,0,0,0,0,0,0,0,0,0)
     result = change_money(100)
-    for i in 0..10 do
+    for i in 0..9 do
       assert(result[i].amount == expected[i].amount, "Failed")
     end
   end
@@ -146,7 +148,7 @@ class ChangeMoneyTest < Test::Unit::TestCase
   def test_exchange_999_99
     expected = mock_all_money(9,1,2,0,1,4,3,2,0,4)
     result = change_money(999.99)
-    for i in 0..10 do
+    for i in 0..9 do
       assert(result[i].amount == expected[i].amount, "Failed")
     end
   end  
@@ -154,7 +156,7 @@ class ChangeMoneyTest < Test::Unit::TestCase
   def test_exchange_1110_29
     expected = mock_all_money(11,0,0,1,0,0,1,0,0,4)
     result = change_money(1110.29)
-    for i in 0..10 do
+    for i in 0..9 do
       assert(result[i].amount == expected[i].amount, "Failed")
     end
   end
@@ -162,7 +164,7 @@ class ChangeMoneyTest < Test::Unit::TestCase
   def test_exchange_0_01000
     expected = mock_all_money(0,0,0,0,0,0,0,0,0,1)
     result = change_money(0.01000)
-    for i in 0..10 do
+    for i in 0..9 do
       assert(result[i].amount == expected[i].amount, "Failed")
     end
   end
@@ -174,7 +176,7 @@ class ChangeMoneyTest < Test::Unit::TestCase
   def test_exchange_0001
     expected = mock_all_money(0,0,0,0,0,1,0,0,0,0)
     result = change_money(0001)
-    for i in 0..10 do
+    for i in 0..9 do
       assert(result[i].amount == expected[i].amount, "Failed")
     end
   end
@@ -182,7 +184,7 @@ class ChangeMoneyTest < Test::Unit::TestCase
   def test_exchange_100000000000000_00
     expected = mock_all_money(1000000000000,0,0,0,0,0,0,0,0,0)
     result = change_money(100000000000000.00)
-    for i in 0..10 do
+    for i in 0..9 do
       assert(result[i].amount == expected[i].amount, "Failed")
     end
   end
@@ -190,7 +192,7 @@ class ChangeMoneyTest < Test::Unit::TestCase
   def test_exchange_999999999999999_00
     expected = mock_all_money(9999999999999,1,2,0,1,4,0,0,0,0)
     result = change_money(999999999999999.00)
-    for i in 0..10 do
+    for i in 0..9 do
       assert(result[i].amount == expected[i].amount, "Failed")
     end
   end
